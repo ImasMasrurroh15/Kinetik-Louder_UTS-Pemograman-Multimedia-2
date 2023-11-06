@@ -1,0 +1,74 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: beige;
+  overflow: hidden;
+  }
+  
+  .dizzy-gillespie {
+    filter: saturate(3);
+    width: 0.1px;
+    height: 0.1px;
+    border: 40px solid transparent;
+    border-radius: 5px;
+    animation: loader 3s ease-in infinite, spin 1s linear infinite;
+  }
+  .dizzy-gillespie::before {
+    filter: saturate(0.3);
+    display: block;
+    position: absolute;
+    z-index: -1;
+    margin-left: -40px;
+    margin-top: -40px;
+    content:'';
+    height:0.1;
+    width:0.1;
+    border: 40px solid transparent;
+    border-radius: 5px;
+    animation: loader 2s ease-in infinite reverse, spin 0.8s linear infinite reverse;
+  }
+  .dizzy-gillespie::after {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    margin-left: -10px;
+    margin-top: -10px;
+    content:'';
+    height:20px;
+    width:20px;
+    border-radius: 20px;
+    background-color: white;
+  }
+  @keyframes loader {
+    0% {border-bottom-color:transparent;border-top-color:#61A3BA}
+    25% {border-left-color:transparent;border-right-color:#FFFFDD}
+    50% {border-top-color:transparent;border-bottom-color:#D2DE32}
+    75% {border-right-color:transparent;border-left-color:#FFFFDD}
+    100% {border-bottom-color:transparent;border-top-color:#61A3BA}
+  }
+  @keyframes spin {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(-360deg)}
+  }
+
+  /* CSS for centering and styling text and image */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  height: 100vh; /* Ensure the container covers the entire viewport height */
+}
+
+.two-line-text {
+  font-size: 24px; /* Adjust the font size as needed */
+  margin-bottom: 10px; /* Add space between the lines */
+}
+
+img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container width */
+}
